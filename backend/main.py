@@ -203,7 +203,7 @@ The user was also asked specific questions about their situation and needs for t
 USER'S SITUATION:
 {content_section}
 
-Use both the user profile AND these situational details to craft a highly personalized response. The situational details should shape WHAT you say, while the profile should shape HOW you say it."""
+Use both the user profile AND these situational details to craft a highly personalized response. The profile captures who this user is and how they prefer to communicate. The situational details capture the specifics of this particular request. Both should influence what you say and how you say it."""
 
     return prompt
 
