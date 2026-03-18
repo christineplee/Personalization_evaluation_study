@@ -1,6 +1,7 @@
 {
   "name": "personalization-study-2",
   "version": "1.0.0",
+  "homepage": "https://christineplee.github.io/Personalization_evaluation_study",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
