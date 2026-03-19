@@ -1,0 +1,353 @@
+{
+  "task_planning": [
+    {
+      "id": "cq_planning_1",
+      "text": "How many meals per day would you like help planning?",
+      "type_tag": "situational",
+      "options": [
+        "1 meal",
+        "2 meals",
+        "3 meals",
+        "All meals",
+        "Only snacks"
+      ]
+    },
+    {
+      "id": "cq_planning_2",
+      "text": "Do you have any dietary restrictions or preferences we should consider?",
+      "type_tag": "situational",
+      "options": [
+        "No restrictions",
+        "Vegetarian",
+        "Vegan",
+        "Gluten-free",
+        "Other (e.g., allergies)"
+      ]
+    },
+    {
+      "id": "cq_planning_3",
+      "text": "How much time can you realistically spend preparing each meal?",
+      "type_tag": "situational",
+      "options": [
+        "Less than 15 minutes",
+        "15-30 minutes",
+        "30-45 minutes",
+        "Over 45 minutes"
+      ]
+    },
+    {
+      "id": "cq_planning_4",
+      "text": "What is your primary goal for eating healthier?",
+      "type_tag": "goal",
+      "options": [
+        "Weight management",
+        "Higher energy levels",
+        "General wellness",
+        "Improved digestion",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_planning_5",
+      "text": "Do you prefer meals that are simple or more varied and creative?",
+      "type_tag": "preference",
+      "options": [
+        "Simple and straightforward",
+        "Varied and creative",
+        "A mix of both",
+        "No preference"
+      ]
+    },
+    {
+      "id": "cq_planning_6",
+      "text": "Do you have access to kitchen appliances like a stove, oven, or blender?",
+      "type_tag": "situational",
+      "options": [
+        "Full kitchen",
+        "Basic kitchen (e.g., microwave)",
+        "Limited appliances",
+        "No kitchen access"
+      ]
+    },
+    {
+      "id": "cq_planning_7",
+      "text": "Would you like to focus on fresh ingredients or are pre-made options okay?",
+      "type_tag": "preference",
+      "options": [
+        "Fresh ingredients only",
+        "Pre-made options are okay",
+        "A mix of both",
+        "No preference"
+      ]
+    },
+    {
+      "id": "cq_planning_8",
+      "text": "What is your budget for weekly groceries?",
+      "type_tag": "situational",
+      "options": [
+        "Low budget (under $50)",
+        "Moderate budget ($50-$100)",
+        "Flexible budget (over $100)",
+        "No specific budget"
+      ]
+    },
+    {
+      "id": "cq_planning_9",
+      "text": "Are you open to trying new cuisines or flavors?",
+      "type_tag": "preference",
+      "options": [
+        "Yes, I love variety",
+        "Mostly familiar flavors",
+        "No, I prefer sticking to what I know",
+        "No preference"
+      ]
+    },
+    {
+      "id": "cq_planning_10",
+      "text": "Would you like suggestions for meal prep or batch cooking to save time?",
+      "type_tag": "goal",
+      "options": [
+        "Yes, definitely",
+        "Maybe, depending on the recipes",
+        "No, I prefer cooking each meal separately"
+      ]
+    }
+  ],
+  "task_advice": [
+    {
+      "id": "cq_advice_1",
+      "text": "How long have you noticed this change in your friend's behavior?",
+      "type_tag": "situational",
+      "options": [
+        "A few days",
+        "A few weeks",
+        "A few months",
+        "More than a year",
+        "I'm not sure"
+      ]
+    },
+    {
+      "id": "cq_advice_2",
+      "text": "How close is your relationship with this friend?",
+      "type_tag": "situational",
+      "options": [
+        "Very close, like best friends",
+        "Pretty close but not best friends",
+        "Casual friends",
+        "Acquaintances",
+        "I'm not sure"
+      ]
+    },
+    {
+      "id": "cq_advice_3",
+      "text": "What would you like to achieve in this situation?",
+      "type_tag": "goal",
+      "options": [
+        "Understand if I did something wrong",
+        "Support my friend if they're struggling",
+        "Reconnect and rebuild the friendship",
+        "Respect their space if needed",
+        "I'm not sure yet"
+      ]
+    },
+    {
+      "id": "cq_advice_4",
+      "text": "Have you tried to reach out to your friend about this already?",
+      "type_tag": "situational",
+      "options": [
+        "Yes, I have talked to them directly",
+        "Yes, but only casually",
+        "Not yet, I haven't reached out",
+        "I tried but they didn't respond",
+        "I'm not sure"
+      ]
+    },
+    {
+      "id": "cq_advice_5",
+      "text": "How does your friend usually respond to open conversations about feelings?",
+      "type_tag": "preference",
+      "options": [
+        "They're open and communicative",
+        "They're somewhat reserved but will talk",
+        "They avoid emotional topics",
+        "I don't know their usual response",
+        "We haven't had those conversations before"
+      ]
+    },
+    {
+      "id": "cq_advice_6",
+      "text": "Do you think external factors (e.g., work, family, stress) might be affecting your friend?",
+      "type_tag": "situational",
+      "options": [
+        "Yes, they seem busy or stressed",
+        "Possibly, but I don't know for sure",
+        "No, I don't think so",
+        "I'm not sure",
+        "We haven't talked about their situation"
+      ]
+    },
+    {
+      "id": "cq_advice_7",
+      "text": "How comfortable are you with having a direct and honest conversation about this?",
+      "type_tag": "preference",
+      "options": [
+        "Very comfortable",
+        "Somewhat comfortable",
+        "Neutral",
+        "Somewhat uncomfortable",
+        "Very uncomfortable"
+      ]
+    },
+    {
+      "id": "cq_advice_8",
+      "text": "What tone would you prefer to take when addressing this with your friend?",
+      "type_tag": "preference",
+      "options": [
+        "Casual and light",
+        "Genuine and heartfelt",
+        "Concerned but neutral",
+        "Direct and straightforward",
+        "I'm not sure yet"
+      ]
+    },
+    {
+      "id": "cq_advice_9",
+      "text": "How much time and effort are you able to invest in addressing this situation?",
+      "type_tag": "goal",
+      "options": [
+        "A lot, I'm willing to dedicate as much as needed",
+        "A moderate amount, depending on my schedule",
+        "A little, I have limited time",
+        "Not much, I need a quick resolution",
+        "I'm not sure yet"
+      ]
+    },
+    {
+      "id": "cq_advice_10",
+      "text": "How important is this friendship to you in your life right now?",
+      "type_tag": "goal",
+      "options": [
+        "Extremely important",
+        "Somewhat important",
+        "Neutral",
+        "Not very important",
+        "I'm not sure"
+      ]
+    }
+  ],
+  "task_creative": [
+    {
+      "id": "cq_creative_1",
+      "text": "Who is the recipient of this thank-you message?",
+      "type_tag": "situational",
+      "options": [
+        "A close friend or family member",
+        "A colleague or professional connection",
+        "A teacher, mentor, or coach",
+        "A neighbor or acquaintance",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_creative_2",
+      "text": "What kind of help did they provide?",
+      "type_tag": "situational",
+      "options": [
+        "Emotional support during a tough time",
+        "Practical help with a specific task or problem",
+        "Guidance or advice that made a difference",
+        "Financial or material assistance",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_creative_3",
+      "text": "How would you like the tone of the message to feel?",
+      "type_tag": "preference",
+      "options": [
+        "Warm and heartfelt",
+        "Professional but appreciative",
+        "Casual and friendly",
+        "Formal and respectful",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_creative_4",
+      "text": "Would you like the message to include a specific example of their help?",
+      "type_tag": "goal",
+      "options": [
+        "Yes, a detailed example",
+        "Yes, but keep it brief",
+        "No, keep it general",
+        "I\u2019m not sure"
+      ]
+    },
+    {
+      "id": "cq_creative_5",
+      "text": "How long would you like the message to be?",
+      "type_tag": "preference",
+      "options": [
+        "Just a couple of sentences",
+        "A short paragraph",
+        "A longer, more detailed message",
+        "I\u2019m not sure"
+      ]
+    },
+    {
+      "id": "cq_creative_6",
+      "text": "How will you deliver this message?",
+      "type_tag": "situational",
+      "options": [
+        "In person",
+        "By email",
+        "Through a handwritten note or card",
+        "Via text or instant message",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_creative_7",
+      "text": "Would you like to include any specific words or phrases?",
+      "type_tag": "preference",
+      "options": [
+        "Yes, I have something specific in mind",
+        "No, but I\u2019d like it to sound natural",
+        "No preference"
+      ]
+    },
+    {
+      "id": "cq_creative_8",
+      "text": "Do you want the message to acknowledge the impact their help had on you?",
+      "type_tag": "goal",
+      "options": [
+        "Yes, in detail",
+        "Yes, but keep it brief",
+        "No, just focus on expressing thanks",
+        "I\u2019m not sure"
+      ]
+    },
+    {
+      "id": "cq_creative_9",
+      "text": "Should the message include a closing statement or offer for future connection?",
+      "type_tag": "preference",
+      "options": [
+        "Yes, I\u2019d like to include a closing statement",
+        "Yes, I\u2019d like to offer future connection",
+        "No, just end with the thank you",
+        "I\u2019m not sure"
+      ]
+    },
+    {
+      "id": "cq_creative_10",
+      "text": "Would you like the message to feel more personal or more general?",
+      "type_tag": "goal",
+      "options": [
+        "Very personal and tailored",
+        "Somewhat personal",
+        "General and broadly applicable",
+        "I\u2019m not sure"
+      ]
+    }
+  ]
+}

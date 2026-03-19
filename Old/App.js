@@ -175,10 +175,10 @@ function TaskContentQuestions({ task, contentQuestions, numContentQs, taskIndex,
         <div className="progress-bar"><div className="progress-fill" style={{ width: `${(taskIndex / totalTasks) * 100}%` }} /></div>
         <p className="task-counter">Task {taskIndex + 1} of {totalTasks} - Help the AI Understand Your Situation</p>
         <div className="task-prompt-box">
-          <span className="label">Your request to the AI:</span>
+          <span className="label" style={{fontWeight: 700, fontSize: '0.9rem'}}>Your request to the AI:</span>
           <p className="task-prompt-text">{task.prompt}</p>
         </div>
-        <div className="content-q-intro"><p>Before the AI generates a response, please answer these questions about your situation so it can better tailor its answer to you:</p></div>
+        <div className="content-q-intro"><p><strong style={{background: '#e8f0e6', padding: '0.5rem 0.75rem', borderRadius: '6px', display: 'block'}}>Before the AI generates a response, please answer these questions about your situation so it can better tailor its answer to you:</strong></p></div>
         {cqs.map((cq, i) => (
           <div key={cq.id} className="content-q-item">
             <p className="content-q-text">{i + 1}. {cq.text}</p>
@@ -234,8 +234,8 @@ function TaskEval({ taskData, taskIndex, totalTasks, attnCheck, onSubmit }) {
         <div className="progress-bar"><div className="progress-fill" style={{ width: `${((taskIndex + 0.5) / totalTasks) * 100}%` }} /></div>
         <p className="task-counter">Task {taskIndex + 1} of {totalTasks} - Evaluate the Response</p>
         <div className="task-section">
-          <div className="task-prompt"><span className="label">Your question to the AI:</span><p>{taskData.prompt}</p></div>
-          <div className="task-response"><span className="label">AI Response:</span><div className="response-text" dangerouslySetInnerHTML={{ __html: renderMarkdown(taskData.response) }} /></div>
+          <div className="task-prompt"><span className="label" style={{fontWeight: 700, fontSize: '0.9rem'}}>Your question to the AI:</span><p>{taskData.prompt}</p></div>
+          <div className="task-response"><span className="label" style={{fontWeight: 700, fontSize: '0.9rem'}}>AI Response:</span><div className="response-text" dangerouslySetInnerHTML={{ __html: renderMarkdown(taskData.response) }} /></div>
         </div>
         <div className="eval-section">
           <div className="eval-item relevance-item">
@@ -277,9 +277,10 @@ function TaskEval({ taskData, taskIndex, totalTasks, attnCheck, onSubmit }) {
 
 /* ── Post-Study ───────────────────────────────────────────────────────── */
 
-function PostStudy({ onSubmit }) {
-  const [data, setData] = useState({ overall_quality: null, prefer_personalized: null, what_helped: '', what_missing: '', how_prefer_to_provide: '' });
-  const complete = data.overall_quality !== null && data.prefer_personalized !== null;
+function PostStudy({ condition, numContentQs, onSubmit }) {
+  const [data, setData] = useState({ overall_quality: null, prefer_personalized: null, content_qs_amount: null, what_helped: '', what_missing: '', content_qs_change: '', how_prefer_to_provide: '' });
+  const hadContentQs = numContentQs > 0;
+  const complete = data.overall_quality !== null && data.prefer_personalized !== null && (hadContentQs ? data.content_qs_amount !== null : true);
   return (
     <div className="phase post-study">
       <div className="card wide">
@@ -302,6 +303,26 @@ function PostStudy({ onSubmit }) {
               <button key={i} className={'choice-btn' + (data.prefer_personalized === i ? ' selected' : '')} onClick={() => setData(p => ({...p, prefer_personalized: i}))}>{opt}</button>)}
           </div>
         </div>
+
+        {hadContentQs && (
+          <div className="question">
+            <p className="q-text">Before each task, the AI asked you questions about your specific situation (e.g., dietary restrictions, details about your friendship, who the thank-you is for). The number of these situation-specific questions felt...</p>
+            <div className="choice-list">
+              {['Far too few - I wanted to share much more', 'Slightly too few', 'About right', 'Slightly too many', 'Far too many - it felt like a burden'].map((opt, i) =>
+                <button key={i} className={'choice-btn' + (data.content_qs_amount === i ? ' selected' : '')} onClick={() => setData(p => ({...p, content_qs_amount: i}))}>{opt}</button>)}
+            </div>
+          </div>
+        )}
+        {!hadContentQs && (
+          <div className="question">
+            <p className="q-text">The AI generated responses without asking you any questions about your specific situation (e.g., dietary restrictions, details about your friendship). Would you have liked the AI to ask you situation-specific questions before responding?</p>
+            <div className="choice-list">
+              {['Yes, definitely - it would have helped a lot', 'Maybe a few questions', 'No - it was fine without them'].map((opt, i) =>
+                <button key={i} className={'choice-btn' + (data.content_qs_amount === i ? ' selected' : '')} onClick={() => setData(p => ({...p, content_qs_amount: i}))}>{opt}</button>)}
+            </div>
+          </div>
+        )}
+
         <div className="question">
           <p className="q-text">What about the AI's responses felt most personalized to you?</p>
           <textarea className="free-text" rows={2} value={data.what_helped} onChange={e => setData(p => ({...p, what_helped: e.target.value}))} placeholder="e.g., It understood my specific dietary needs..." />
@@ -310,10 +331,17 @@ function PostStudy({ onSubmit }) {
           <p className="q-text">What information do you wish the AI had known about you or your situation?</p>
           <textarea className="free-text" rows={2} value={data.what_missing} onChange={e => setData(p => ({...p, what_missing: e.target.value}))} placeholder="e.g., My budget, my schedule constraints..." />
         </div>
+
         <div className="question">
-          <p className="q-text">How would you prefer to provide this kind of information to an AI in the future?</p>
-          <textarea className="free-text" rows={2} value={data.how_prefer_to_provide} onChange={e => setData(p => ({...p, how_prefer_to_provide: e.target.value}))} placeholder="e.g., Through a conversation, a questionnaire, by example..." />
+          <p className="q-text">If you could change the number or type of situation-specific questions the AI asked before each task, what would you change?</p>
+          <textarea className="free-text" rows={2} value={data.content_qs_change} onChange={e => setData(p => ({...p, content_qs_change: e.target.value}))} placeholder="e.g., Ask fewer but more targeted questions, let me type my own details instead..." />
         </div>
+
+        <div className="question">
+          <p className="q-text">How would you prefer to provide this kind of situation-specific information to an AI in the future?</p>
+          <textarea className="free-text" rows={2} value={data.how_prefer_to_provide} onChange={e => setData(p => ({...p, how_prefer_to_provide: e.target.value}))} placeholder="e.g., Through a conversation, a short questionnaire, by typing freely..." />
+        </div>
+
         <button className="btn primary" disabled={!complete} onClick={() => onSubmit(data)}>Submit & Finish</button>
       </div>
     </div>
@@ -402,7 +430,7 @@ export default function App() {
     let failures = 0;
     checks.forEach(ac => { if (answers[ac.id] !== ac.expected_answer) failures++; });
     setFailedAttnCount(failures);
-    if (failures >= 3) { setPhase('terminated'); return; }
+    if (failures >= 2) { setPhase('terminated'); return; }
 
     try {
       await api('/api/profiling/submit', { method: 'POST', body: JSON.stringify({ session_id: sessionId, answers }) });
@@ -450,7 +478,7 @@ export default function App() {
           await api('/api/attention-check/submit', { method: 'POST', body: JSON.stringify({ session_id: sessionId, check_id: attnCheck.id, expected: attnCheck.expected_answer, actual: attnRating }) });
         } catch (e) { console.error(e); }
         if (attnRating !== attnCheck.expected_answer) {
-          setFailedAttnCount(p => { const n = p + 1; if (n >= 3) setPhase('terminated'); return n; });
+          setFailedAttnCount(p => { const n = p + 1; if (n >= 2) setPhase('terminated'); return n; });
         }
       }
       // Next task or post-study
@@ -497,7 +525,7 @@ export default function App() {
         <TaskEval taskData={currentTaskData} taskIndex={currentTaskIndex} totalTasks={numTasks}
           attnCheck={evalAttentionChecks?.[String(currentTaskIndex)] || null} onSubmit={handleEvalSubmit} />
       )}
-      {phase === 'post_study' && <PostStudy onSubmit={handlePostStudy} />}
+      {phase === 'post_study' && <PostStudy condition={condition} numContentQs={numContentQs} onSubmit={handlePostStudy} />}
       {phase === 'done' && <ThankYou sessionId={sessionId} prolificRedirectUrl={prolificRedirectUrl} />}
       {phase === 'terminated' && (
         <div className="phase thank-you"><div className="card"><h1>Study Ended</h1>
