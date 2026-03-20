@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Personalization_evaluation_study/static/css/main.27950cb4.css",
+    "main.js": "/Personalization_evaluation_study/static/js/main.be60feba.js",
+    "index.html": "/Personalization_evaluation_study/index.html",
+    "main.27950cb4.css.map": "/Personalization_evaluation_study/static/css/main.27950cb4.css.map",
+    "main.be60feba.js.map": "/Personalization_evaluation_study/static/js/main.be60feba.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27950cb4.css",
+    "static/js/main.be60feba.js"
+  ]
+}
