@@ -26,8 +26,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Layout ────────────────────────────────────────────────────────────── */
+/* ── Added after update ────────────────────────────────────────────────────────────── */
+.required { color: #c44e52; font-weight: bold; }
+.task-selection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
+.task-selection-card { text-align: left; padding: 1rem; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s; }
+.task-selection-card:hover { border-color: #4a6741; }
+.task-selection-card.selected { border-color: #4a6741; background: #e8f0e6; }
+.task-selection-card.disabled { opacity: 0.4; cursor: not-allowed; }
+.task-selection-label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+.task-selection-prompt { display: block; font-size: 0.85rem; color: #666; }
 
+
+/* ── Layout ────────────────────────────────────────────────────────────── */
 .app {
   min-height: 100vh;
 }

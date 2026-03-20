@@ -43,13 +43,14 @@ function Welcome({ onStart }) {
           <div className="info-box">
             <strong>What to expect:</strong>
             <ul>
-              <li><strong>Part 1: About You.</strong> You will answer a short set of questions about your personality and communication preferences.</li>
-              <li><strong>Part 2: Three Tasks.</strong> You will be given 3 everyday scenarios where you are asking the AI for help. For each task, the AI may ask you follow-up questions about your specific situation before generating its response. You will then read the AI's response and evaluate how well it fit your needs.</li>
-              <li><strong>Part 3: Final Reflections.</strong> A few short questions about your overall experience.</li>
+              <li><strong>Part 1: About You.</strong> You will answer a short set of questions about your personality and communication preferences. The AI will use these to adapt how it communicates with you.</li>
+              <li><strong>Part 2: Choose Your Tasks.</strong> You will pick 3 everyday scenarios that feel most relevant to you.</li>
+              <li><strong>Part 3: Three Tasks.</strong> For each task you chose, the AI may ask you follow-up questions about your specific situation before generating its response. You will then read the AI's response and evaluate how well it fit your needs.</li>
+              <li><strong>Part 4: Final Reflections.</strong> A few short questions about your overall experience.</li>
             </ul>
           </div>
           <p className="note">
-            Estimated time: 15-20 minutes. Your responses are stored with an anonymous ID.
+            Estimated time: Around 15 minutes. Your responses are stored with an anonymous ID.
             No personally identifiable information is collected.
           </p>
         </div>
@@ -59,7 +60,7 @@ function Welcome({ onStart }) {
   );
 }
 
-/* ── Profiling (same as Study 1, updated tiers) ─────────────────────── */
+/* ── Profiling ──────────────────────────────────────────────────────── */
 
 const TIER_LABELS = { primals: 'World Beliefs', bigfive: 'Personality', projective: 'Scenarios & Choices', vignettes: 'Communication Preferences' };
 const TIER_ORDER = ['primals', 'bigfive', 'projective', 'vignettes'];
@@ -164,6 +165,43 @@ function Profiling({ questions, onSubmit }) {
             ? <button className="btn primary" disabled={!tierDone} onClick={() => setCurrentTier(p => p + 1)}>Next Section</button>
             : <button className="btn primary" disabled={total < questions.length} onClick={() => onSubmit(answers)}>Submit & Continue</button>}
         </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Task Selection (pick 3 of 8) ────────────────────────────────────── */
+
+function TaskSelection({ allTasks, onSubmit }) {
+  const [selected, setSelected] = useState([]);
+
+  const toggle = (taskId) => {
+    setSelected(prev => {
+      if (prev.includes(taskId)) return prev.filter(id => id !== taskId);
+      if (prev.length >= 3) return prev;
+      return [...prev, taskId];
+    });
+  };
+
+  return (
+    <div className="phase task-selection">
+      <div className="card wide">
+        <h2>Choose Your Tasks</h2>
+        <p>Below are 8 everyday scenarios where you might ask an AI for help. <strong>Please select the 3 that feel most relevant or interesting to you.</strong> You will work through each one you choose.</p>
+        <p className="tier-progress">{selected.length} of 3 selected</p>
+        <div className="task-selection-grid">
+          {allTasks.map(task => (
+            <button key={task.id}
+              className={'task-selection-card' + (selected.includes(task.id) ? ' selected' : '') + (selected.length >= 3 && !selected.includes(task.id) ? ' disabled' : '')}
+              onClick={() => toggle(task.id)}>
+              <span className="task-selection-label">{task.short_label}</span>
+              <span className="task-selection-prompt">{task.prompt}</span>
+            </button>
+          ))}
+        </div>
+        <button className="btn primary" disabled={selected.length !== 3} onClick={() => onSubmit(selected)}>
+          Continue with Selected Tasks
+        </button>
       </div>
     </div>
   );
@@ -283,18 +321,40 @@ function TaskEval({ taskData, taskIndex, totalTasks, attnCheck, onSubmit }) {
 }
 
 /* ── Post-Study ───────────────────────────────────────────────────────── */
+/* Changes from previous version:
+   - REMOVED "prefer personalized over generic" (too obvious)
+   - Sharpened NP/P0 follow-up options for mutual exclusivity
+   - Design-relevant open-ended questions are now FORCED (required)
+   - Reworded "change" -> "determine" for content Qs question
+   - Added "if you would not like to..." to how_prefer question
+   - Added optional final thoughts question
+*/
 
 function PostStudy({ condition, numContentQs, onSubmit }) {
-  const [data, setData] = useState({ overall_quality: null, prefer_personalized: null, content_qs_amount: null, what_helped: '', what_missing: '', content_qs_change: '', how_prefer_to_provide: '' });
+  const [data, setData] = useState({
+    overall_quality: null, content_qs_amount: null,
+    what_helped: '', what_missing: '', content_qs_determine: '', how_prefer_to_provide: '', final_thoughts: ''
+  });
   const hadContentQs = numContentQs > 0;
-  const complete = data.overall_quality !== null && data.prefer_personalized !== null && (hadContentQs ? data.content_qs_amount !== null : true);
+
+  // All closed-ended forced. Design-relevant open-ended forced. Only final_thoughts optional.
+  const complete =
+    data.overall_quality !== null &&
+    data.content_qs_amount !== null &&
+    data.what_helped.trim().length > 0 &&
+    data.what_missing.trim().length > 0 &&
+    data.content_qs_determine.trim().length > 0 &&
+    data.how_prefer_to_provide.trim().length > 0;
+
   return (
     <div className="phase post-study">
       <div className="card wide">
         <h2>Final Reflections</h2>
         <p>Almost done - a few last questions about your overall experience.</p>
+
+        {/* Q1: Overall quality (forced) */}
         <div className="question">
-          <p className="q-text">Overall, how would you rate the quality of the AI's responses?</p>
+          <p className="q-text">Overall, how would you rate the quality of the AI's responses? <span className="required">*</span></p>
           <div className="likert-row">
             <span className="anchor left">Very poor</span>
             <div className="likert-buttons">
@@ -303,50 +363,61 @@ function PostStudy({ condition, numContentQs, onSubmit }) {
             <span className="anchor right">Excellent</span>
           </div>
         </div>
-        <div className="question">
-          <p className="q-text">Would you prefer an AI that adapts to you like this over a generic AI assistant?</p>
-          <div className="choice-list">
-            {['Strongly prefer personalized', 'Slightly prefer personalized', 'No preference', 'Slightly prefer generic', 'Strongly prefer generic'].map((opt, i) =>
-              <button key={i} className={'choice-btn' + (data.prefer_personalized === i ? ' selected' : '')} onClick={() => setData(p => ({...p, prefer_personalized: i}))}>{opt}</button>)}
-          </div>
-        </div>
 
+        {/* Q2: Content question amount perception (forced, condition-dependent) */}
         {hadContentQs && (
           <div className="question">
-            <p className="q-text">Before each task, the AI asked you questions about your specific situation (e.g., dietary restrictions, details about your friendship, who the thank-you is for). The number of these situation-specific questions felt...</p>
+            <p className="q-text">Before each task, the AI asked you questions about your specific situation (e.g., dietary restrictions, details about your friendship, who the thank-you is for). The number of these situation-specific questions felt... <span className="required">*</span></p>
             <div className="choice-list">
-              {['Far too few - I wanted to share much more', 'Slightly too few', 'About right', 'Slightly too many', 'Far too many - it felt like a burden'].map((opt, i) =>
+              {['Far too few - I wanted to share much more about my situation',
+                'Slightly too few - a couple more would have helped',
+                'About right - it asked what it needed to know',
+                'Slightly too many - some felt unnecessary',
+                'Far too many - it felt like a burden to answer them all'].map((opt, i) =>
                 <button key={i} className={'choice-btn' + (data.content_qs_amount === i ? ' selected' : '')} onClick={() => setData(p => ({...p, content_qs_amount: i}))}>{opt}</button>)}
             </div>
           </div>
         )}
         {!hadContentQs && (
           <div className="question">
-            <p className="q-text">The AI generated responses without asking you any questions about your specific situation (e.g., dietary restrictions, details about your friendship). Would you have liked the AI to ask you situation-specific questions before responding?</p>
+            <p className="q-text">The AI generated responses without asking you any questions about your specific situation beforehand. Which best describes how you feel about that? <span className="required">*</span></p>
             <div className="choice-list">
-              {['Yes, definitely - it would have helped a lot', 'Maybe a few questions', 'No - it was fine without them'].map((opt, i) =>
+              {['I would have strongly preferred the AI to ask me about my situation first',
+                'It might have helped to answer a few questions, but it wasn\'t a big issue',
+                'I preferred it this way - I didn\'t want to answer extra questions'].map((opt, i) =>
                 <button key={i} className={'choice-btn' + (data.content_qs_amount === i ? ' selected' : '')} onClick={() => setData(p => ({...p, content_qs_amount: i}))}>{opt}</button>)}
             </div>
           </div>
         )}
 
+        {/* Q3: What felt personalized (forced) */}
         <div className="question">
-          <p className="q-text">What about the AI's responses felt most personalized to you?</p>
+          <p className="q-text">What about the AI's responses felt most personalized to you? <span className="required">*</span></p>
           <textarea className="free-text" rows={2} value={data.what_helped} onChange={e => setData(p => ({...p, what_helped: e.target.value}))} placeholder="e.g., It understood my specific dietary needs..." />
         </div>
+
+        {/* Q4: What was missing (forced) */}
         <div className="question">
-          <p className="q-text">What information do you wish the AI had known about you or your situation?</p>
-          <textarea className="free-text" rows={2} value={data.what_missing} onChange={e => setData(p => ({...p, what_missing: e.target.value}))} placeholder="e.g., My budget, my schedule constraints..." />
+          <p className="q-text">If you could determine the number situation-specific questions the AI asked before each task, how many would be appropriate?  <span className="required">*</span></p>
+          <textarea className="free-text" rows={2} value={data.what_missing} onChange={e => setData(p => ({...p, what_missing: e.target.value}))} placeholder="e.g., 1, 3, 5, 100..." />
         </div>
 
+        {/* Q5: Determine content Qs (forced, reworded) */}
         <div className="question">
-          <p className="q-text">If you could change the number or type of situation-specific questions the AI asked before each task, what would you change?</p>
-          <textarea className="free-text" rows={2} value={data.content_qs_change} onChange={e => setData(p => ({...p, content_qs_change: e.target.value}))} placeholder="e.g., Ask fewer but more targeted questions, let me type my own details instead..." />
+          <p className="q-text">If you could determine the type of situation-specific questions the AI asked before each task, what would you choose? <span className="required">*</span></p>
+          <textarea className="free-text" rows={2} value={data.content_qs_determine} onChange={e => setData(p => ({...p, content_qs_determine: e.target.value}))} placeholder="e.g., questions about my constraints and goals..." />
         </div>
 
+        {/* Q6: How prefer to provide (forced, with added clause) */}
         <div className="question">
-          <p className="q-text">How would you prefer to provide this kind of situation-specific information to an AI in the future?</p>
+          <p className="q-text">How would you prefer to provide this kind of situation-specific information to an AI in the future? If you would not like to provide this information, please explain why. <span className="required">*</span></p>
           <textarea className="free-text" rows={2} value={data.how_prefer_to_provide} onChange={e => setData(p => ({...p, how_prefer_to_provide: e.target.value}))} placeholder="e.g., Through a conversation, a short questionnaire, by typing freely..." />
+        </div>
+
+        {/* Q7: Final thoughts (optional) */}
+        <div className="question">
+          <p className="q-text">Any final thoughts on this topic that you weren't able to share elsewhere?</p>
+          <textarea className="free-text" rows={2} value={data.final_thoughts} onChange={e => setData(p => ({...p, final_thoughts: e.target.value}))} placeholder="Optional" />
         </div>
 
         <button className="btn primary" disabled={!complete} onClick={() => onSubmit(data)}>Submit & Finish</button>
@@ -373,7 +444,7 @@ function ThankYou({ sessionId, prolificRedirectUrl }) {
 
 /* ── Main App ─────────────────────────────────────────────────────────── */
 /*
- * Flow: welcome -> profiling (skip NP) -> per-task loop -> post_study -> done
+ * Flow: welcome -> profiling (skip NP) -> task_selection -> per-task loop -> post_study -> done
  * Per-task loop: content_qs (skip NP/P0) -> buffer (generate 1) -> evaluate -> next task
  */
 
@@ -383,9 +454,8 @@ export default function App() {
   const [condition, setCondition] = useState(null);
   const [hasProfile, setHasProfile] = useState(true);
   const [numContentQs, setNumContentQs] = useState(0);
-  const [numTasks, setNumTasks] = useState(3);
-  const [taskOrder, setTaskOrder] = useState([]);
-  const [taskDefs, setTaskDefs] = useState([]);  // from /api/session/create
+  const [allTasks, setAllTasks] = useState([]);       // all 8 tasks
+  const [selectedTasks, setSelectedTasks] = useState([]); // 3 chosen task objects
   const [questions, setQuestions] = useState([]);
   const [contentQuestions, setContentQuestions] = useState({});
   const [evalAttentionChecks, setEvalAttentionChecks] = useState({});
@@ -403,12 +473,6 @@ export default function App() {
     }).catch(console.error);
   }, []);
 
-  // Get current task definition based on task_order
-  const getCurrentTask = () => {
-    if (!taskDefs.length || !taskOrder.length) return null;
-    return taskDefs[taskOrder[currentTaskIndex]];
-  };
-
   const handleStart = async () => {
     try {
       const params = new URLSearchParams(window.location.search);
@@ -417,17 +481,14 @@ export default function App() {
       setCondition(session.condition);
       setHasProfile(session.has_profile);
       setNumContentQs(session.num_content_qs);
-      setNumTasks(session.num_tasks);
-      setTaskOrder(session.task_order);
-      setTaskDefs(session.tasks);
+      setAllTasks(session.all_tasks);
       if (session.prolific_redirect_url) setProlificRedirectUrl(session.prolific_redirect_url);
 
       if (session.has_profile) {
         setPhase('profiling');
       } else {
-        // NP: skip profiling, go straight to first task
-        setCurrentTaskIndex(0);
-        startTask(session.session_id, 0, {});
+        // NP: skip profiling, go to task selection
+        setPhase('task_selection');
       }
     } catch (err) { setError('Failed to create session. Please try again.'); }
   };
@@ -441,17 +502,26 @@ export default function App() {
 
     try {
       await api('/api/profiling/submit', { method: 'POST', body: JSON.stringify({ session_id: sessionId, answers }) });
-      setCurrentTaskIndex(0);
-      // Start first task
-      if (numContentQs > 0) {
-        setPhase('task_content');
-      } else {
-        startTask(sessionId, 0, {});
-      }
+      setPhase('task_selection');
     } catch (err) { setError('Failed to submit profile. Please try again.'); }
   };
 
-  const startTask = async (sid, taskIdx, contentAnswers) => {
+  const handleTaskSelection = async (selectedTaskIds) => {
+    try {
+      await api('/api/tasks/select', { method: 'POST', body: JSON.stringify({ session_id: sessionId, selected_task_ids: selectedTaskIds }) });
+      // Build selected task objects in order
+      const taskObjs = selectedTaskIds.map(id => allTasks.find(t => t.id === id));
+      setSelectedTasks(taskObjs);
+      setCurrentTaskIndex(0);
+      if (numContentQs > 0) {
+        setPhase('task_content');
+      } else {
+        startTask(sessionId, 0);
+      }
+    } catch (err) { setError('Failed to save task selection. Please try again.'); }
+  };
+
+  const startTask = async (sid, taskIdx, contentAnswers = {}) => {
     setPhase('task_buffer');
     try {
       const result = await api('/api/task/generate', {
@@ -489,7 +559,7 @@ export default function App() {
         }
       }
       // Next task or post-study
-      if (currentTaskIndex < numTasks - 1) {
+      if (currentTaskIndex < 2) {
         const next = currentTaskIndex + 1;
         setCurrentTaskIndex(next);
         setCurrentTaskData(null);
@@ -497,7 +567,7 @@ export default function App() {
         if (numContentQs > 0) {
           setPhase('task_content');
         } else {
-          startTask(sessionId, next, {});
+          startTask(sessionId, next);
         }
       } else {
         setPhase('post_study');
@@ -517,19 +587,20 @@ export default function App() {
     <button className="btn primary" onClick={() => { setError(null); setPhase('welcome'); }}>Start Over</button></div></div>
   );
 
-  const currentTask = getCurrentTask();
+  const currentTask = selectedTasks[currentTaskIndex] || null;
 
   return (
     <div className="app">
       {phase === 'welcome' && <Welcome onStart={handleStart} />}
       {phase === 'profiling' && questions.length > 0 && <Profiling questions={questions} onSubmit={handleProfilingSubmit} />}
+      {phase === 'task_selection' && allTasks.length > 0 && <TaskSelection allTasks={allTasks} onSubmit={handleTaskSelection} />}
       {phase === 'task_content' && currentTask && (
         <TaskContentQuestions task={currentTask} contentQuestions={contentQuestions} numContentQs={numContentQs}
-          taskIndex={currentTaskIndex} totalTasks={numTasks} onSubmit={handleContentSubmit} />
+          taskIndex={currentTaskIndex} totalTasks={3} onSubmit={handleContentSubmit} />
       )}
       {phase === 'task_buffer' && <Buffer />}
       {phase === 'task_eval' && currentTaskData && (
-        <TaskEval taskData={currentTaskData} taskIndex={currentTaskIndex} totalTasks={numTasks}
+        <TaskEval taskData={currentTaskData} taskIndex={currentTaskIndex} totalTasks={3}
           attnCheck={evalAttentionChecks?.[String(currentTaskIndex)] || null} onSubmit={handleEvalSubmit} />
       )}
       {phase === 'post_study' && <PostStudy condition={condition} numContentQs={numContentQs} onSubmit={handlePostStudy} />}

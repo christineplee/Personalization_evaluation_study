@@ -1,23 +1,359 @@
 {
+  "task_advice": [
+    {
+      "id": "cq_advice_1",
+      "text": "How long have you noticed your friend pulling away?",
+      "type_tag": "situational",
+      "options": [
+        "A few days",
+        "A few weeks",
+        "A few months",
+        "I\u2019m not sure"
+      ]
+    },
+    {
+      "id": "cq_advice_2",
+      "text": "How often do you and your friend typically communicate?",
+      "type_tag": "situational",
+      "options": [
+        "Daily",
+        "A few times a week",
+        "A few times a month",
+        "Rarely"
+      ]
+    },
+    {
+      "id": "cq_advice_3",
+      "text": "What kind of response are you hoping for from your friend?",
+      "type_tag": "goal",
+      "options": [
+        "Reassurance that everything is okay",
+        "A deeper conversation about their feelings",
+        "An opportunity to apologize if needed",
+        "I\u2019m not sure yet"
+      ]
+    },
+    {
+      "id": "cq_advice_4",
+      "text": "How comfortable are you with directly asking your friend if something is wrong?",
+      "type_tag": "preference",
+      "options": [
+        "Very comfortable",
+        "Somewhat comfortable",
+        "Not very comfortable",
+        "Not comfortable at all"
+      ]
+    },
+    {
+      "id": "cq_advice_5",
+      "text": "Have there been any recent changes in your friend\u2019s life that could be affecting them?",
+      "type_tag": "situational",
+      "options": [
+        "Yes, something significant happened",
+        "Maybe, but I'm not sure",
+        "No, not that I know of",
+        "I haven\u2019t thought about it"
+      ]
+    },
+    {
+      "id": "cq_advice_6",
+      "text": "What\u2019s the main priority for you in handling this situation?",
+      "type_tag": "goal",
+      "options": [
+        "Maintaining the friendship",
+        "Understanding what\u2019s going on",
+        "Resolving any potential issues",
+        "Giving them space if needed"
+      ]
+    },
+    {
+      "id": "cq_advice_7",
+      "text": "Do you prefer handling sensitive situations like this in person or remotely?",
+      "type_tag": "preference",
+      "options": [
+        "In person",
+        "Over the phone",
+        "Through text or messaging",
+        "It depends on the situation"
+      ]
+    },
+    {
+      "id": "cq_advice_8",
+      "text": "Have you communicated with your friend about this concern before?",
+      "type_tag": "situational",
+      "options": [
+        "Yes, we\u2019ve discussed it",
+        "No, I haven\u2019t brought it up yet",
+        "I\u2019ve hinted at it but not directly",
+        "I\u2019m not sure how to approach it"
+      ]
+    },
+    {
+      "id": "cq_advice_9",
+      "text": "Do you think your friend might need space or support right now?",
+      "type_tag": "situational",
+      "options": [
+        "They might need space",
+        "They might need support",
+        "I\u2019m not sure what they need",
+        "I don\u2019t think this applies"
+      ]
+    },
+    {
+      "id": "cq_advice_10",
+      "text": "How do you typically handle conflicts or misunderstandings in friendships?",
+      "type_tag": "preference",
+      "options": [
+        "By discussing it openly",
+        "By giving it time to resolve naturally",
+        "By seeking advice or support from others",
+        "I try to avoid direct confrontation"
+      ]
+    }
+  ],
+  "task_explain": [
+    {
+      "id": "cq_explain_1",
+      "text": "How long have you been experiencing this tiredness?",
+      "type_tag": "situational",
+      "options": [
+        "Less than a week",
+        "1-4 weeks",
+        "1-6 months",
+        "More than 6 months"
+      ]
+    },
+    {
+      "id": "cq_explain_2",
+      "text": "Do you usually feel tired at specific times of the day?",
+      "type_tag": "situational",
+      "options": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "All day"
+      ]
+    },
+    {
+      "id": "cq_explain_3",
+      "text": "How many hours of sleep do you typically get per night?",
+      "type_tag": "situational",
+      "options": [
+        "Less than 4 hours",
+        "4-6 hours",
+        "6-8 hours",
+        "More than 8 hours"
+      ]
+    },
+    {
+      "id": "cq_explain_4",
+      "text": "Do you have any known medical conditions that might affect your energy levels?",
+      "type_tag": "situational",
+      "options": [
+        "Yes, and they are diagnosed",
+        "Yes, but they are undiagnosed",
+        "No, not to my knowledge",
+        "Prefer not to disclose"
+      ]
+    },
+    {
+      "id": "cq_explain_5",
+      "text": "What kind of advice would be most helpful to you?",
+      "type_tag": "preference",
+      "options": [
+        "Lifestyle changes (e.g., diet, exercise)",
+        "Sleep improvement tips",
+        "Stress management techniques",
+        "Medical advice or when to consult a doctor"
+      ]
+    },
+    {
+      "id": "cq_explain_6",
+      "text": "Are there any constraints you face in making lifestyle changes?",
+      "type_tag": "situational",
+      "options": [
+        "Time constraints",
+        "Financial limitations",
+        "Physical limitations",
+        "No major constraints"
+      ]
+    },
+    {
+      "id": "cq_explain_7",
+      "text": "Do you have a specific goal related to your energy levels?",
+      "type_tag": "goal",
+      "options": [
+        "Feel more alert during work or study",
+        "Have more energy for physical activities",
+        "Improve overall well-being",
+        "Not sure yet"
+      ]
+    },
+    {
+      "id": "cq_explain_8",
+      "text": "Do you use any tools or apps to track your sleep or energy levels?",
+      "type_tag": "situational",
+      "options": [
+        "Yes, regularly",
+        "Yes, occasionally",
+        "No, but I\u2019m open to it",
+        "No, and I\u2019m not interested"
+      ]
+    },
+    {
+      "id": "cq_explain_9",
+      "text": "How much detail do you prefer in the AI's response?",
+      "type_tag": "preference",
+      "options": [
+        "A brief summary",
+        "A balanced explanation with some detail",
+        "A fully detailed response",
+        "Depends on the topic"
+      ]
+    },
+    {
+      "id": "cq_explain_10",
+      "text": "Have you already tried anything to improve your energy levels?",
+      "type_tag": "situational",
+      "options": [
+        "Yes, and it helped",
+        "Yes, but it didn\u2019t help",
+        "No, I haven\u2019t tried anything yet",
+        "Prefer not to say"
+      ]
+    }
+  ],
+  "task_emotional": [
+    {
+      "id": "cq_emotional_1",
+      "text": "Who were the people involved in the meeting where your ideas were ignored?",
+      "type_tag": "situational",
+      "options": [
+        "My manager or supervisor",
+        "Colleagues at my level",
+        "A mix of managers and colleagues",
+        "External stakeholders or clients"
+      ]
+    },
+    {
+      "id": "cq_emotional_2",
+      "text": "How often do situations like this occur for you in meetings?",
+      "type_tag": "situational",
+      "options": [
+        "This is the first time",
+        "Occasionally, but not often",
+        "Fairly regularly",
+        "Almost every meeting"
+      ]
+    },
+    {
+      "id": "cq_emotional_3",
+      "text": "What do you want to achieve by addressing this situation?",
+      "type_tag": "goal",
+      "options": [
+        "I want my ideas to be recognized",
+        "I want to improve communication dynamics",
+        "I want to feel respected and valued",
+        "I\u2019m not sure yet, I just want to vent"
+      ]
+    },
+    {
+      "id": "cq_emotional_4",
+      "text": "How comfortable are you with directly addressing this issue with the people involved?",
+      "type_tag": "preference",
+      "options": [
+        "Very comfortable",
+        "Somewhat comfortable",
+        "Not very comfortable",
+        "Not comfortable at all"
+      ]
+    },
+    {
+      "id": "cq_emotional_5",
+      "text": "What kind of ideas were you trying to share in the meeting?",
+      "type_tag": "situational",
+      "options": [
+        "Creative or innovative suggestions",
+        "Process or workflow improvements",
+        "Team or project updates",
+        "Other types of ideas"
+      ]
+    },
+    {
+      "id": "cq_emotional_6",
+      "text": "What would be your preferred way of receiving advice on this situation?",
+      "type_tag": "preference",
+      "options": [
+        "Specific actionable steps",
+        "General guidance and encouragement",
+        "A mix of both",
+        "I\u2019m open to any type of advice"
+      ]
+    },
+    {
+      "id": "cq_emotional_7",
+      "text": "Who do you think is most responsible for the issue you faced in the meeting?",
+      "type_tag": "situational",
+      "options": [
+        "The people ignoring my ideas",
+        "The person taking credit for my ideas",
+        "Both equally",
+        "I\u2019m not sure"
+      ]
+    },
+    {
+      "id": "cq_emotional_8",
+      "text": "How do you usually handle situations where you feel frustrated at work?",
+      "type_tag": "preference",
+      "options": [
+        "I address it directly with the people involved",
+        "I talk to someone I trust for advice",
+        "I try to let it go and move on",
+        "I haven\u2019t figured out a consistent approach"
+      ]
+    },
+    {
+      "id": "cq_emotional_9",
+      "text": "What kind of work culture are you part of?",
+      "type_tag": "situational",
+      "options": [
+        "Collaborative and supportive",
+        "Competitive and high-pressure",
+        "Neutral or mixed",
+        "I\u2019m not sure how to describe it"
+      ]
+    },
+    {
+      "id": "cq_emotional_10",
+      "text": "What\u2019s the most important outcome you\u2019d like from advice on this issue?",
+      "type_tag": "goal",
+      "options": [
+        "Better communication skills",
+        "Stronger recognition of my contributions",
+        "Improved confidence in sharing ideas",
+        "A way to move past the frustration"
+      ]
+    }
+  ],
   "task_planning": [
     {
       "id": "cq_planning_1",
       "text": "How many meals per day would you like help planning?",
       "type_tag": "situational",
       "options": [
-        "1 meal",
-        "2 meals",
-        "3 meals",
-        "All meals",
-        "Only snacks"
+        "1 meal per day",
+        "2 meals per day",
+        "3 meals per day",
+        "Only dinners",
+        "It varies day to day"
       ]
     },
     {
       "id": "cq_planning_2",
-      "text": "Do you have any dietary restrictions or preferences we should consider?",
+      "text": "Do you have any dietary restrictions or preferences?",
       "type_tag": "situational",
       "options": [
-        "No restrictions",
+        "None",
         "Vegetarian",
         "Vegan",
         "Gluten-free",
@@ -26,226 +362,111 @@
     },
     {
       "id": "cq_planning_3",
-      "text": "How much time can you realistically spend preparing each meal?",
-      "type_tag": "situational",
+      "text": "What level of cooking effort are you comfortable with?",
+      "type_tag": "preference",
       "options": [
-        "Less than 15 minutes",
-        "15-30 minutes",
-        "30-45 minutes",
-        "Over 45 minutes"
+        "Minimal (e.g., microwave or no-cook)",
+        "Basic (e.g., simple stovetop recipes)",
+        "Intermediate (e.g., recipes with several steps)",
+        "I don\u2019t mind complex recipes",
+        "Depends on the day"
       ]
     },
     {
       "id": "cq_planning_4",
-      "text": "What is your primary goal for eating healthier?",
-      "type_tag": "goal",
+      "text": "Do you have any budget considerations for groceries?",
+      "type_tag": "situational",
       "options": [
-        "Weight management",
-        "Higher energy levels",
-        "General wellness",
-        "Improved digestion",
-        "Other"
+        "No specific budget",
+        "Low-budget meals",
+        "Moderate budget",
+        "Flexible budget",
+        "Unsure"
       ]
     },
     {
       "id": "cq_planning_5",
-      "text": "Do you prefer meals that are simple or more varied and creative?",
-      "type_tag": "preference",
+      "text": "What is your main goal for eating healthier?",
+      "type_tag": "goal",
       "options": [
-        "Simple and straightforward",
-        "Varied and creative",
-        "A mix of both",
-        "No preference"
+        "Weight management",
+        "Improved energy levels",
+        "Better overall health",
+        "Specific dietary goals (e.g., more protein)",
+        "Other"
       ]
     },
     {
       "id": "cq_planning_6",
-      "text": "Do you have access to kitchen appliances like a stove, oven, or blender?",
+      "text": "How much time do you have for meal prep on average?",
       "type_tag": "situational",
       "options": [
-        "Full kitchen",
-        "Basic kitchen (e.g., microwave)",
-        "Limited appliances",
-        "No kitchen access"
+        "Less than 15 minutes",
+        "15\u201330 minutes",
+        "30\u201360 minutes",
+        "Over an hour",
+        "Depends on the day"
       ]
     },
     {
       "id": "cq_planning_7",
-      "text": "Would you like to focus on fresh ingredients or are pre-made options okay?",
+      "text": "Do you prefer meals with familiar ingredients or are you open to trying new foods?",
       "type_tag": "preference",
       "options": [
-        "Fresh ingredients only",
-        "Pre-made options are okay",
-        "A mix of both",
-        "No preference"
+        "Familiar ingredients",
+        "Mostly familiar with some new",
+        "Open to trying new foods",
+        "No preference",
+        "Depends on the recipe"
       ]
     },
     {
       "id": "cq_planning_8",
-      "text": "What is your budget for weekly groceries?",
+      "text": "Do you have access to common kitchen appliances (e.g., stove, oven, microwave)?",
       "type_tag": "situational",
       "options": [
-        "Low budget (under $50)",
-        "Moderate budget ($50-$100)",
-        "Flexible budget (over $100)",
-        "No specific budget"
+        "Yes, I have all standard appliances",
+        "Some appliances only (e.g., microwave)",
+        "Limited access to kitchen appliances",
+        "Unsure",
+        "Other"
       ]
     },
     {
       "id": "cq_planning_9",
-      "text": "Are you open to trying new cuisines or flavors?",
+      "text": "Would you like meals with leftovers for future days?",
       "type_tag": "preference",
       "options": [
-        "Yes, I love variety",
-        "Mostly familiar flavors",
-        "No, I prefer sticking to what I know",
-        "No preference"
+        "Yes, I prefer leftovers",
+        "No, single servings only",
+        "Some meals with leftovers, some without",
+        "Depends on the meal",
+        "Unsure"
       ]
     },
     {
       "id": "cq_planning_10",
-      "text": "Would you like suggestions for meal prep or batch cooking to save time?",
-      "type_tag": "goal",
-      "options": [
-        "Yes, definitely",
-        "Maybe, depending on the recipes",
-        "No, I prefer cooking each meal separately"
-      ]
-    }
-  ],
-  "task_advice": [
-    {
-      "id": "cq_advice_1",
-      "text": "How long have you noticed this change in your friend's behavior?",
-      "type_tag": "situational",
-      "options": [
-        "A few days",
-        "A few weeks",
-        "A few months",
-        "More than a year",
-        "I'm not sure"
-      ]
-    },
-    {
-      "id": "cq_advice_2",
-      "text": "How close is your relationship with this friend?",
-      "type_tag": "situational",
-      "options": [
-        "Very close, like best friends",
-        "Pretty close but not best friends",
-        "Casual friends",
-        "Acquaintances",
-        "I'm not sure"
-      ]
-    },
-    {
-      "id": "cq_advice_3",
-      "text": "What would you like to achieve in this situation?",
-      "type_tag": "goal",
-      "options": [
-        "Understand if I did something wrong",
-        "Support my friend if they're struggling",
-        "Reconnect and rebuild the friendship",
-        "Respect their space if needed",
-        "I'm not sure yet"
-      ]
-    },
-    {
-      "id": "cq_advice_4",
-      "text": "Have you tried to reach out to your friend about this already?",
-      "type_tag": "situational",
-      "options": [
-        "Yes, I have talked to them directly",
-        "Yes, but only casually",
-        "Not yet, I haven't reached out",
-        "I tried but they didn't respond",
-        "I'm not sure"
-      ]
-    },
-    {
-      "id": "cq_advice_5",
-      "text": "How does your friend usually respond to open conversations about feelings?",
+      "text": "Are there specific cuisines you enjoy or want to include in your meal plan?",
       "type_tag": "preference",
       "options": [
-        "They're open and communicative",
-        "They're somewhat reserved but will talk",
-        "They avoid emotional topics",
-        "I don't know their usual response",
-        "We haven't had those conversations before"
-      ]
-    },
-    {
-      "id": "cq_advice_6",
-      "text": "Do you think external factors (e.g., work, family, stress) might be affecting your friend?",
-      "type_tag": "situational",
-      "options": [
-        "Yes, they seem busy or stressed",
-        "Possibly, but I don't know for sure",
-        "No, I don't think so",
-        "I'm not sure",
-        "We haven't talked about their situation"
-      ]
-    },
-    {
-      "id": "cq_advice_7",
-      "text": "How comfortable are you with having a direct and honest conversation about this?",
-      "type_tag": "preference",
-      "options": [
-        "Very comfortable",
-        "Somewhat comfortable",
-        "Neutral",
-        "Somewhat uncomfortable",
-        "Very uncomfortable"
-      ]
-    },
-    {
-      "id": "cq_advice_8",
-      "text": "What tone would you prefer to take when addressing this with your friend?",
-      "type_tag": "preference",
-      "options": [
-        "Casual and light",
-        "Genuine and heartfelt",
-        "Concerned but neutral",
-        "Direct and straightforward",
-        "I'm not sure yet"
-      ]
-    },
-    {
-      "id": "cq_advice_9",
-      "text": "How much time and effort are you able to invest in addressing this situation?",
-      "type_tag": "goal",
-      "options": [
-        "A lot, I'm willing to dedicate as much as needed",
-        "A moderate amount, depending on my schedule",
-        "A little, I have limited time",
-        "Not much, I need a quick resolution",
-        "I'm not sure yet"
-      ]
-    },
-    {
-      "id": "cq_advice_10",
-      "text": "How important is this friendship to you in your life right now?",
-      "type_tag": "goal",
-      "options": [
-        "Extremely important",
-        "Somewhat important",
-        "Neutral",
-        "Not very important",
-        "I'm not sure"
+        "No preference",
+        "American/Western",
+        "Asian (e.g., Chinese, Indian, Japanese)",
+        "Mediterranean",
+        "Other (please specify)"
       ]
     }
   ],
   "task_creative": [
     {
       "id": "cq_creative_1",
-      "text": "Who is the recipient of this thank-you message?",
+      "text": "Who is the thank-you message for?",
       "type_tag": "situational",
       "options": [
         "A close friend or family member",
         "A colleague or professional connection",
         "A teacher, mentor, or coach",
-        "A neighbor or acquaintance",
-        "Other"
+        "Someone I don\u2019t know very well"
       ]
     },
     {
@@ -253,100 +474,434 @@
       "text": "What kind of help did they provide?",
       "type_tag": "situational",
       "options": [
-        "Emotional support during a tough time",
-        "Practical help with a specific task or problem",
-        "Guidance or advice that made a difference",
-        "Financial or material assistance",
-        "Other"
+        "Emotional support during a hard time",
+        "Practical or financial assistance",
+        "Advice or guidance",
+        "A mix of different types of help"
       ]
     },
     {
       "id": "cq_creative_3",
-      "text": "How would you like the tone of the message to feel?",
+      "text": "What tone would you like the message to have?",
       "type_tag": "preference",
       "options": [
         "Warm and heartfelt",
-        "Professional but appreciative",
+        "Formal and professional",
         "Casual and friendly",
-        "Formal and respectful",
-        "Other"
+        "Creative or unique"
       ]
     },
     {
       "id": "cq_creative_4",
-      "text": "Would you like the message to include a specific example of their help?",
-      "type_tag": "goal",
+      "text": "How long do you want the message to be?",
+      "type_tag": "preference",
       "options": [
-        "Yes, a detailed example",
-        "Yes, but keep it brief",
-        "No, keep it general",
-        "I\u2019m not sure"
+        "Just a few sentences",
+        "A short paragraph",
+        "A detailed and thoughtful message"
       ]
     },
     {
       "id": "cq_creative_5",
-      "text": "How long would you like the message to be?",
-      "type_tag": "preference",
+      "text": "Would you like to include any specific details about what they did?",
+      "type_tag": "goal",
       "options": [
-        "Just a couple of sentences",
-        "A short paragraph",
-        "A longer, more detailed message",
-        "I\u2019m not sure"
+        "Yes, I want to mention their specific actions",
+        "No, just a general thank-you is fine",
+        "I\u2019m not sure yet"
       ]
     },
     {
       "id": "cq_creative_6",
-      "text": "How will you deliver this message?",
-      "type_tag": "situational",
+      "text": "Do you want to include anything about how their help impacted you?",
+      "type_tag": "goal",
       "options": [
-        "In person",
-        "By email",
-        "Through a handwritten note or card",
-        "Via text or instant message",
-        "Other"
+        "Yes, I want to explain how it made a difference",
+        "No, I prefer to keep it simple",
+        "I\u2019m not sure yet"
       ]
     },
     {
       "id": "cq_creative_7",
-      "text": "Would you like to include any specific words or phrases?",
-      "type_tag": "preference",
+      "text": "Should the message include any mention of future plans or staying in touch?",
+      "type_tag": "goal",
       "options": [
-        "Yes, I have something specific in mind",
-        "No, but I\u2019d like it to sound natural",
-        "No preference"
+        "Yes, I\u2019d like to mention staying in touch",
+        "No, just focusing on the thank-you is enough",
+        "I\u2019m not sure yet"
       ]
     },
     {
       "id": "cq_creative_8",
-      "text": "Do you want the message to acknowledge the impact their help had on you?",
-      "type_tag": "goal",
+      "text": "Do you want the message to include any expressions of gratitude beyond words?",
+      "type_tag": "preference",
       "options": [
-        "Yes, in detail",
-        "Yes, but keep it brief",
-        "No, just focus on expressing thanks",
-        "I\u2019m not sure"
+        "Yes, like offering to return the favor",
+        "No, just words are enough",
+        "I\u2019m not sure yet"
       ]
     },
     {
       "id": "cq_creative_9",
-      "text": "Should the message include a closing statement or offer for future connection?",
-      "type_tag": "preference",
+      "text": "Should the message reference when the help occurred?",
+      "type_tag": "situational",
       "options": [
-        "Yes, I\u2019d like to include a closing statement",
-        "Yes, I\u2019d like to offer future connection",
-        "No, just end with the thank you",
-        "I\u2019m not sure"
+        "Yes, I want to mention the timing",
+        "No, I prefer not to include that",
+        "I\u2019m not sure yet"
       ]
     },
     {
       "id": "cq_creative_10",
-      "text": "Would you like the message to feel more personal or more general?",
+      "text": "How will you send the message?",
+      "type_tag": "situational",
+      "options": [
+        "By email",
+        "As a handwritten note",
+        "Through a text or messaging app",
+        "I\u2019m not sure yet"
+      ]
+    }
+  ],
+  "task_recommendation": [
+    {
+      "id": "cq_recommendation_1",
+      "text": "What type of activities do you generally enjoy?",
+      "type_tag": "preference",
+      "options": [
+        "Creative (e.g., art, writing)",
+        "Physical (e.g., sports, fitness)",
+        "Intellectual (e.g., reading, puzzles)",
+        "Social (e.g., group activities)",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_recommendation_2",
+      "text": "Do you prefer indoor or outdoor hobbies?",
+      "type_tag": "preference",
+      "options": [
+        "Mostly indoor",
+        "Mostly outdoor",
+        "No preference"
+      ]
+    },
+    {
+      "id": "cq_recommendation_3",
+      "text": "What is your primary goal for picking up a new hobby?",
       "type_tag": "goal",
       "options": [
-        "Very personal and tailored",
-        "Somewhat personal",
-        "General and broadly applicable",
-        "I\u2019m not sure"
+        "Relaxation and stress relief",
+        "Learning new skills",
+        "Meeting new people",
+        "Physical fitness",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_recommendation_4",
+      "text": "How much time per week are you realistically able to dedicate to a new hobby?",
+      "type_tag": "situational",
+      "options": [
+        "1-2 hours",
+        "3-5 hours",
+        "6-10 hours",
+        "More than 10 hours"
+      ]
+    },
+    {
+      "id": "cq_recommendation_5",
+      "text": "What is your approximate budget for this hobby?",
+      "type_tag": "situational",
+      "options": [
+        "Free or very low-cost",
+        "Up to $50 per month",
+        "Up to $100 per month",
+        "More than $100 per month"
+      ]
+    },
+    {
+      "id": "cq_recommendation_6",
+      "text": "Would you prefer a hobby that you can do alone or with others?",
+      "type_tag": "preference",
+      "options": [
+        "Alone",
+        "With others",
+        "No preference"
+      ]
+    },
+    {
+      "id": "cq_recommendation_7",
+      "text": "Do you want a hobby that involves learning new skills or building on skills you already have?",
+      "type_tag": "goal",
+      "options": [
+        "Learning new skills",
+        "Building on existing skills",
+        "I\u2019m open to either"
+      ]
+    },
+    {
+      "id": "cq_recommendation_8",
+      "text": "Are there any physical or logistical constraints you'd like to consider (e.g., limited mobility, space at home)?",
+      "type_tag": "situational",
+      "options": [
+        "Yes, I have physical constraints",
+        "Yes, I have space constraints",
+        "No constraints"
+      ]
+    },
+    {
+      "id": "cq_recommendation_9",
+      "text": "Would you prefer a hobby that produces tangible results (e.g., art, crafts) or more experiential (e.g., sports, games)?",
+      "type_tag": "preference",
+      "options": [
+        "Tangible results",
+        "Experiential",
+        "No preference"
+      ]
+    },
+    {
+      "id": "cq_recommendation_10",
+      "text": "Do you want a hobby that could potentially become a side business or is purely for leisure?",
+      "type_tag": "goal",
+      "options": [
+        "Potential side business",
+        "Purely for leisure",
+        "Open to either"
+      ]
+    }
+  ],
+  "task_howto": [
+    {
+      "id": "cq_howto_1",
+      "text": "What is the length of your presentation?",
+      "type_tag": "situational",
+      "options": [
+        "Less than 5 minutes",
+        "5-10 minutes",
+        "10-20 minutes",
+        "More than 20 minutes"
+      ]
+    },
+    {
+      "id": "cq_howto_2",
+      "text": "How familiar are you with the topic of your presentation?",
+      "type_tag": "situational",
+      "options": [
+        "Very familiar",
+        "Somewhat familiar",
+        "Not very familiar",
+        "Not familiar at all"
+      ]
+    },
+    {
+      "id": "cq_howto_3",
+      "text": "What type of audience will you be presenting to?",
+      "type_tag": "situational",
+      "options": [
+        "Peers or colleagues",
+        "Supervisors or managers",
+        "Clients or customers",
+        "A mixed audience"
+      ]
+    },
+    {
+      "id": "cq_howto_4",
+      "text": "What is your main goal for this presentation?",
+      "type_tag": "goal",
+      "options": [
+        "Educating the audience",
+        "Persuading or convincing",
+        "Sharing updates or progress",
+        "Building rapport or connection"
+      ]
+    },
+    {
+      "id": "cq_howto_5",
+      "text": "What is your biggest concern about public speaking?",
+      "type_tag": "goal",
+      "options": [
+        "Forgetting what to say",
+        "Appearing nervous",
+        "Keeping the audience engaged",
+        "Not being prepared"
+      ]
+    },
+    {
+      "id": "cq_howto_6",
+      "text": "What type of preparation do you prefer?",
+      "type_tag": "preference",
+      "options": [
+        "Practicing in front of others",
+        "Practicing alone or with notes",
+        "Using visual aids like slides",
+        "Improvising with minimal preparation"
+      ]
+    },
+    {
+      "id": "cq_howto_7",
+      "text": "What setting will your presentation take place in?",
+      "type_tag": "situational",
+      "options": [
+        "A small meeting room",
+        "A large conference room",
+        "Virtual via video call",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_howto_8",
+      "text": "How much time do you have available to prepare?",
+      "type_tag": "situational",
+      "options": [
+        "A few hours",
+        "A full day",
+        "Several days",
+        "A week or more"
+      ]
+    },
+    {
+      "id": "cq_howto_9",
+      "text": "Do you prefer structured or flexible advice?",
+      "type_tag": "preference",
+      "options": [
+        "Very structured (step-by-step)",
+        "Somewhat structured",
+        "Flexible and adaptable",
+        "Minimal guidance"
+      ]
+    },
+    {
+      "id": "cq_howto_10",
+      "text": "What tools or resources would you like to use?",
+      "type_tag": "preference",
+      "options": [
+        "Slides or visuals",
+        "Cue cards or notes",
+        "Rehearsal software",
+        "None of the above"
+      ]
+    }
+  ],
+  "task_ambiguous": [
+    {
+      "id": "cq_ambiguous_1",
+      "text": "What type of work schedule do you currently have?",
+      "type_tag": "situational",
+      "options": [
+        "Regular 9-to-5 hours",
+        "Shift work or irregular hours",
+        "Freelance or self-employed with flexible hours",
+        "Unemployed or between jobs",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_ambiguous_2",
+      "text": "Where do you typically work from?",
+      "type_tag": "situational",
+      "options": [
+        "An office or workplace outside my home",
+        "Primarily from home",
+        "A mix of home and office",
+        "On the move or in various locations",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_ambiguous_3",
+      "text": "What is your main goal in improving your work-life balance?",
+      "type_tag": "goal",
+      "options": [
+        "Spending more time on personal or family activities",
+        "Reducing stress and mental fatigue",
+        "Improving my productivity during work hours",
+        "Finding time for hobbies or self-care",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_ambiguous_4",
+      "text": "What is your biggest challenge in maintaining work-life balance?",
+      "type_tag": "situational",
+      "options": [
+        "Too much work or tight deadlines",
+        "Difficulty disconnecting from work after hours",
+        "Unclear boundaries between work and home life",
+        "Lack of support from colleagues or family",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_ambiguous_5",
+      "text": "How much structure do you prefer in your daily routine?",
+      "type_tag": "preference",
+      "options": [
+        "A highly structured schedule with clear time blocks",
+        "A loose structure with some flexibility",
+        "No structure\u2014I prefer to go with the flow",
+        "It depends on the day or situation",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_ambiguous_6",
+      "text": "Do you already have any strategies or habits for managing work-life balance?",
+      "type_tag": "situational",
+      "options": [
+        "Yes, but they aren't working well",
+        "Yes, and they work somewhat",
+        "No, I don\u2019t have any strategies",
+        "I haven\u2019t thought about it before",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_ambiguous_7",
+      "text": "How do you prefer to spend your personal or leisure time?",
+      "type_tag": "preference",
+      "options": [
+        "Socializing with family or friends",
+        "Engaging in hobbies or creative activities",
+        "Exercising or focusing on physical health",
+        "Relaxing or doing nothing in particular",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_ambiguous_8",
+      "text": "What kind of advice or support are you looking for?",
+      "type_tag": "goal",
+      "options": [
+        "Practical tips or techniques to try",
+        "Encouragement or mindset shifts",
+        "Tools or apps to help organize my time",
+        "Examples of how others handle this",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_ambiguous_9",
+      "text": "How do you usually feel about work-life balance advice?",
+      "type_tag": "preference",
+      "options": [
+        "I find it helpful and motivating",
+        "It\u2019s often unrealistic for my situation",
+        "It\u2019s interesting, but hard to apply",
+        "I\u2019m skeptical or unsure about it",
+        "Other"
+      ]
+    },
+    {
+      "id": "cq_ambiguous_10",
+      "text": "How urgently do you want to address your work-life balance?",
+      "type_tag": "goal",
+      "options": [
+        "Immediately\u2014I need help now",
+        "Soon\u2014within the next few weeks",
+        "Eventually, when I have time",
+        "Not sure\u2014it\u2019s not a priority yet",
+        "Other"
       ]
     }
   ]

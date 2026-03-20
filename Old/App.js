@@ -35,16 +35,23 @@ function Welcome({ onStart }) {
         <h1>AI Personalization Study</h1>
         <p className="subtitle">Exploring how AI assistants can better adapt to <em>you</em></p>
         <div className="welcome-body">
-          <p>In this study, you may answer questions about yourself, then work through 3 tasks with an AI assistant. You'll evaluate how well each response fits your needs.</p>
+          <p>
+            In this study, you will interact with an AI assistant that tries to personalize
+            its responses to you. You will evaluate how well the AI's responses match your
+            needs and preferences.
+          </p>
           <div className="info-box">
             <strong>What to expect:</strong>
             <ul>
-              <li>Part 1: Answer questions about your preferences and personality</li>
-              <li>Part 2: Work through 3 AI tasks and evaluate the responses</li>
-              <li>Part 3: A few final reflection questions</li>
+              <li><strong>Part 1: About You.</strong> You will answer a short set of questions about your personality and communication preferences.</li>
+              <li><strong>Part 2: Three Tasks.</strong> You will be given 3 everyday scenarios where you are asking the AI for help. For each task, the AI may ask you follow-up questions about your specific situation before generating its response. You will then read the AI's response and evaluate how well it fit your needs.</li>
+              <li><strong>Part 3: Final Reflections.</strong> A few short questions about your overall experience.</li>
             </ul>
           </div>
-          <p className="note">Your responses are stored with an anonymous ID. No personally identifiable information is collected.</p>
+          <p className="note">
+            Estimated time: 15-20 minutes. Your responses are stored with an anonymous ID.
+            No personally identifiable information is collected.
+          </p>
         </div>
         <button className="btn primary" onClick={onStart}>Begin Study</button>
       </div>
@@ -175,10 +182,10 @@ function TaskContentQuestions({ task, contentQuestions, numContentQs, taskIndex,
         <div className="progress-bar"><div className="progress-fill" style={{ width: `${(taskIndex / totalTasks) * 100}%` }} /></div>
         <p className="task-counter">Task {taskIndex + 1} of {totalTasks} - Help the AI Understand Your Situation</p>
         <div className="task-prompt-box">
-          <span className="label" style={{fontWeight: 700, fontSize: '0.9rem'}}>Your request to the AI:</span>
+          <span className="label" style={{fontWeight: 700, fontSize: '0.9rem'}}>Imagine you are asking an AI assistant the following:</span>
           <p className="task-prompt-text">{task.prompt}</p>
         </div>
-        <div className="content-q-intro"><p><strong style={{background: '#e8f0e6', padding: '0.5rem 0.75rem', borderRadius: '6px', display: 'block'}}>Before the AI generates a response, please answer these questions about your situation so it can better tailor its answer to you:</strong></p></div>
+        <div className="content-q-intro"><p><strong style={{background: '#e8f0e6', padding: '0.5rem 0.75rem', borderRadius: '6px', display: 'block'}}>The AI would like to know more about your specific situation before generating its response. It is asking you the following follow-up questions. Please answer them:</strong></p></div>
         {cqs.map((cq, i) => (
           <div key={cq.id} className="content-q-item">
             <p className="content-q-text">{i + 1}. {cq.text}</p>
@@ -234,8 +241,8 @@ function TaskEval({ taskData, taskIndex, totalTasks, attnCheck, onSubmit }) {
         <div className="progress-bar"><div className="progress-fill" style={{ width: `${((taskIndex + 0.5) / totalTasks) * 100}%` }} /></div>
         <p className="task-counter">Task {taskIndex + 1} of {totalTasks} - Evaluate the Response</p>
         <div className="task-section">
-          <div className="task-prompt"><span className="label" style={{fontWeight: 700, fontSize: '0.9rem'}}>Your question to the AI:</span><p>{taskData.prompt}</p></div>
-          <div className="task-response"><span className="label" style={{fontWeight: 700, fontSize: '0.9rem'}}>AI Response:</span><div className="response-text" dangerouslySetInnerHTML={{ __html: renderMarkdown(taskData.response) }} /></div>
+          <div className="task-prompt"><span className="label" style={{fontWeight: 700, fontSize: '0.9rem'}}>You asked the AI the following:</span><p>{taskData.prompt}</p></div>
+          <div className="task-response"><span className="label" style={{fontWeight: 700, fontSize: '0.9rem'}}>The AI responded with:</span><div className="response-text" dangerouslySetInnerHTML={{ __html: renderMarkdown(taskData.response) }} /></div>
         </div>
         <div className="eval-section">
           <div className="eval-item relevance-item">
