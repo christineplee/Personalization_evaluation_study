@@ -387,13 +387,3 @@ def study_status():
         by_condition = {c: conn.execute("SELECT COUNT(*) FROM sessions WHERE condition=?", (c,)).fetchone()[0] for c in CONDITION_KEYS}
     return {"total_sessions": total, "complete": complete, "by_condition": by_condition}
 
-@app.post("/api/admin/reset")
-def reset_study():
-    with get_db() as conn:
-        conn.executescript("""
-            DELETE FROM sessions;
-            DELETE FROM responses;
-            DELETE FROM evaluations;
-            DELETE FROM attention_checks;
-        """)
-    return {"status": "reset complete"}
